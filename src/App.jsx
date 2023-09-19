@@ -6,10 +6,12 @@ import Navbar from './components/Navbar'
 function App() {
 
   return (
-    <div className='todo-wrapper'>
+    <div className='wrapper'>
       <Navbar />
-      <Header />
-      <TodosLogic />
+      <div className="todos">
+        <Header />
+        <TodosLogic />
+      </div>
     </div>
   )
 }
