@@ -1,10 +1,11 @@
 import './App.css'
+import Header from './components/Header'
 
 function App() {
 
   return (
-    <div>
-      <h1 className="text-info">Text component here!!!</h1>
+    <div className='todo-wrapper'>
+      <Header />
     </div>
   )
 }
