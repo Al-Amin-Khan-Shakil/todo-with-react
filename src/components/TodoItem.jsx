@@ -1,5 +1,8 @@
 import PropTypes from "prop-types"
 import styles from '../styles/TodoItem.module.css';
+import { BsFillTrashFill } from 'react-icons/bs';
+import { AiFillEdit } from "react-icons/ai";
+
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
   const completedStyle = {
     fontStyle: 'italic',
@@ -16,7 +19,15 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
-        <button onClick={() => delTodo(itemProp.id)}>Delete</button>
+        <button>
+          <AiFillEdit style={{ color: "#5e5e5e", fontSize: "16px" }} />
+        </button>
+        <button onClick={() => delTodo(itemProp.id)}>
+          <BsFillTrashFill
+            color="#5e5e5e"
+            size="20px"
+          />
+        </button>
         <span style={itemProp.completed ? completedStyle : null}>
           {itemProp.title}
         </span>
