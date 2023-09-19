@@ -1,21 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useOnClickOutside } from "./OnClickOutside";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const ref = useRef();
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropdown(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-
-    return () => {
-      document.removeEventListener('mousedown', handler);
-    }
-  }, [dropdown])
+  useOnClickOutside(ref, dropdown, () => setDropdown(false));
 
   return (
     <nav>
