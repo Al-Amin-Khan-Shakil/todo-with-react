@@ -1,7 +1,11 @@
+import { useRef, useState } from "react";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodoList";
+import { useOnClickOutside } from "./OnClickOutside";
 
 const TodosLogic = () => {
+  const [openList, setOpenList] = useState(false);
+  const refItem = useRef();
   const todos = [
     {
       id: 1,
@@ -19,10 +23,17 @@ const TodosLogic = () => {
       completed: false,
     },
   ];
+  useOnClickOutside(refItem, openList, () => setOpenList(false));
   return (
-    <div>
-      <InputTodo />
-      <TodosList todosProps={todos} />
+    <div ref={refItem}>
+      <button onClick={() => setOpenList((prev) => !prev)}>Open List</button>
+      {openList && (
+        <div>
+          <span onClick={() => setOpenList(false)}>X</span>
+          <InputTodo />
+          <TodosList todosProps={todos} />
+        </div>
+      )}
     </div>
   );
 };
