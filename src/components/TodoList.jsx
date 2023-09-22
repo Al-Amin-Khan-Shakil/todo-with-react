@@ -18,6 +18,8 @@ const TodosList = ({ todosProps, handleChange, delTodo }) => {
 };
 
 TodosList.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
   todosProps: PropTypes.arrayOf(
     PropTypes.shape.isRequired,
   ).isRequired,

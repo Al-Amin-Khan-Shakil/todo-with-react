@@ -37,8 +37,12 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
 };
 
 TodoItem.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
   itemProp: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    completed: PropTypes.bool.isRequired,
   }).isRequired,
 };
 export default TodoItem;
